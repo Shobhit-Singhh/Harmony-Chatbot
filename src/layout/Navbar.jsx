@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BottomNavChat = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -12,39 +14,39 @@ const BottomNavChat = () => {
                     <div className="m-1 flex items-center justify-between w-28">
                         <img
                             className="w-6 cursor-pointer"
-                            src="./assets/Nav/Nav =Home.png"
+                            src="/assets/Nav/Nav =Home.png"
                             alt="home"
-                            onClick={() => (window.location.href = "index.html")}
+                            onClick={() => navigate("/")}
                         />
                         <img
                             className="w-6 cursor-pointer"
-                            src="./assets/Nav/Nav =Recommendation.png"
+                            src="/assets/Nav/Nav =Recommendation.png"
                             alt="recommendation"
-                            onClick={() => (window.location.href = "recommendation.html")}
+                            onClick={() => navigate("/recommendation")}
                         />
                     </div>
 
                     {/* AI Chat Icon in the Middle */}
                     <div
                         className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg z-0 -mt-12 cursor-pointer"
-                        onClick={() => setIsChatOpen(!isChatOpen)}
+                        onClick={() => setIsChatOpen(prev => !prev)}
                     >
-                        <img className="w-6" src="./assets/Nav/Nav =Sage Bot.png" alt="AI chat" />
+                        <img className="w-6" src="/assets/Nav/Nav =Sage Bot.png" alt="AI chat" />
                     </div>
 
                     {/* Right Side Icons */}
                     <div className="m-1 flex items-center justify-between w-28">
                         <img
                             className="w-6 cursor-pointer"
-                            src="./assets/Nav/Nav =Media.png"
-                            alt="media"
-                            onClick={() => (window.location.href = "media.html")}
+                            src="/assets/Nav/Nav =Media.png"
+                            alt="community"
+                            onClick={() => navigate("/memory")}
                         />
                         <img
                             className="w-6 cursor-pointer"
-                            src="./assets/Nav/Nav =Profile.png"
+                            src="/assets/Nav/Nav =Profile.png"
                             alt="profile"
-                            onClick={() => (window.location.href = "profile.html")}
+                            onClick={() => navigate("/profile")}
                         />
                     </div>
                 </div>
@@ -52,8 +54,7 @@ const BottomNavChat = () => {
 
             {/* Chatbox (Hidden by default) */}
             <div
-                className={`fixed left-1/2 transform -translate-x-1/2 w-96 bg-green-500 rounded-t-xl transition-transform duration-300 ease-in-out z-30 ${isChatOpen ? "bottom-0" : "-bottom-2 translate-y-full"
-                    }`}
+                className={`fixed left-1/2 transform -translate-x-1/2 w-96 bg-green-500 rounded-t-xl transition-transform duration-300 ease-in-out z-30 ${isChatOpen ? "bottom-0" : "-bottom-2 translate-y-full"}`}
             >
                 <div className="bg-green-500 m-6 flex flex-col items-center justify-center rounded-xl">
                     {/* Chat Interface */}

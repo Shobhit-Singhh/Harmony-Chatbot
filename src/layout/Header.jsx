@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TopNavbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleNav = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -19,17 +21,17 @@ const TopNavbar = () => {
 
                     {/* Navigation Tabs (visible on larger screens) */}
                     <ul className="hidden sm:flex space-x-6 text-sm font-medium">
-                        <li><a href="index.html" className="hover:text-green-700">Home</a></li>
-                        <li><a href="recommendation.html" className="hover:text-green-700">Recommendation</a></li>
-                        <li><a href="media.html" className="hover:text-green-700">Media</a></li>
-                        <li><a href="profile.html" className="hover:text-green-700">Profile</a></li>
-                        <li><a href="community.html" className="hover:text-green-700">Community</a></li>
+                        <li><button onClick={() => navigate("/")} className="hover:text-green-700">Home</button></li>
+                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-green-700">Recommendation</button></li>
+                        <li><button onClick={() => navigate("/memory")} className="hover:text-green-700">Media</button></li>
+                        <li><button onClick={() => navigate("/profile")} className="hover:text-green-700">Profile</button></li>
+                        <li><button onClick={() => navigate("/community")} className="hover:text-green-700">Community</button></li>
                     </ul>
 
                     {/* SOS Button and Hamburger Menu */}
                     <div className="flex items-center space-x-4">
                         {/* SOS Button */}
-                        <button onClick={() => window.location.href = "sos.html"}>
+                        <button onClick={() => navigate("/sos")}>
                             <img className="h-10 w-10 object-contain" src="./assets/SOS Icon.png" alt="SOS" />
                         </button>
 
@@ -51,11 +53,11 @@ const TopNavbar = () => {
 
                     {/* Navigation Links */}
                     <ul className="space-y-6 text-lg font-medium pt-20">
-                        <li><a href="index.html" className="hover:text-green-700">Home</a></li>
-                        <li><a href="recommendation.html" className="hover:text-green-700">Recommendation</a></li>
-                        <li><a href="media.html" className="hover:text-green-700">Media</a></li>
-                        <li><a href="profile.html" className="hover:text-green-700">Profile</a></li>
-                        <li><a href="community.html" className="hover:text-green-700">Community</a></li>
+                        <li><button onClick={() => navigate("/")} className="hover:text-green-700">Home</button></li>
+                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-green-700">Recommendation</button></li>
+                        <li><button onClick={() => navigate("/media")} className="hover:text-green-700">Media</button></li>
+                        <li><button onClick={() => navigate("/profile")} className="hover:text-green-700">Profile</button></li>
+                        <li><button onClick={() => navigate("/community")} className="hover:text-green-700">Community</button></li>
                     </ul>
                 </div>
             </div>

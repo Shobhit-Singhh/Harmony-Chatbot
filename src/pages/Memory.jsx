@@ -1,46 +1,38 @@
 import { useEffect } from "react";
 
-const Memories = () => {
-    useEffect(() => {
-        import("../dist/scripts/memories/gallery.js");
-        import("../dist/scripts/memories/music.js");
-        import("../dist/scripts/memories/letter.js");
-        import("../dist/scripts/memories/gratitude.js");
-    }, []);
+import AudioGallery from "../components/memories/audio";
+import ImageGallery from "../components/memories/gallery";
+import Letter from "../components/memories/letter";
+import Gratitude from "../components/memories/gratitude";
 
+const Memories = () => {
     return (
         <div className="bg-slate-100 min-h-screen">
-            {/* Navigation Bars */}
-            <script src="../dist/scripts/frames/top_nav.js"></script>
-            <script src="../dist/scripts/frames/side_menu.js"></script>
-            <script src="../dist/scripts/frames/bottom_nav.js"></script>
-
-            {/* Background Image */}
-            <div className="absolute top-0 left-0 w-full h-full -z-10">
-                <img
-                    className="w-full object-cover opacity-50"
-                    src="../assets/Topographic bg.png"
-                    alt="background"
-                />
-            </div>
-
             {/* Main Content */}
             <div className="bg-pink-50 mt-20 mx-4 mb-14 rounded-t-xl p-6 shadow-lg">
                 <h2 className="text-3xl font-bold text-center text-green-800">Memories</h2>
 
                 {/* Gallery Section */}
-                <Section title="Gallery" id="image-container" />
+                <div className="m-4">
+                    <ImageGallery />
+                </div>
 
                 {/* Music Section */}
-                <Section title="Music" id="music-container" />
+                <div className="m-4">
+                    <AudioGallery />
+                </div>
 
                 {/* Letter Section */}
-                <Section title="Letter" id="letter-container" />
+                <div className="m-4">
+                    <Letter />
+                </div>
 
-                {/* Gratitude Letters Section */}
-                <Section title="Gratitude Letters" id="gratitude-container" />
+                {/* Gratitude Section */}
+                <div className="m-4">
+                    <Gratitude />
+                </div>
             </div>
-        </div>
+        </div >
     );
 };
 

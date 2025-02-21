@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RightSideMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -15,8 +17,7 @@ const RightSideMenu = () => {
 
             {/* Right Side Menu */}
             <div
-                className={`fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
+                className={`fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="p-6 relative">
                     {/* Close Button */}
@@ -27,19 +28,19 @@ const RightSideMenu = () => {
                     {/* Navigation Links */}
                     <ul className="space-y-6 text-lg font-medium pt-20">
                         <li>
-                            <a href="index.html" className="hover:text-green-700">Home</a>
+                            <button onClick={() => navigate("/")} className="hover:text-green-700">Home</button>
                         </li>
                         <li>
-                            <a href="recommendation.html" className="hover:text-green-700">Recommendation</a>
+                            <button onClick={() => navigate("/recommendation")} className="hover:text-green-700">Recommendation</button>
                         </li>
                         <li>
-                            <a href="media.html" className="hover:text-green-700">Media</a>
+                            <button onClick={() => navigate("/memory")} className="hover:text-green-700">Media</button>
                         </li>
                         <li>
-                            <a href="profile.html" className="hover:text-green-700">Profile</a>
+                            <button onClick={() => navigate("/profile")} className="hover:text-green-700">Profile</button>
                         </li>
                         <li>
-                            <a href="community.html" className="hover:text-green-700">Community</a>
+                            <button onClick={() => navigate("/community")} className="hover:text-green-700">Community</button>
                         </li>
                     </ul>
                 </div>

@@ -13,16 +13,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Welcome to AI Health Assistant
-              </h2>
-              <p className="text-gray-600">
-                Describe your symptoms, and our AI will assist you in finding relevant health information.
-              </p>
-            </div>
-          } />
+          <Route path="/" element={<Home />} />
           <Route path="memory" element={<Memory />} />
           <Route path="recommendation" element={<Recommendation />} />
           <Route path="sos" element={<SOS />} />
