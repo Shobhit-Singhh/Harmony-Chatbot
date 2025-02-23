@@ -143,7 +143,7 @@ const GraphCards = () => {
     };
 
     return (
-        <div className="p-6 bg-gray-50">
+        <div className="">
             <div className="flex items-center gap-2 mb-4">
                 <h2 className="text-lg font-medium text-gray-800">Health Metrics</h2>
                 <span className="text-gray-400">→</span>
