@@ -1,103 +1,127 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import Chatbot from "../components/Chatbot";
 
-const BottomNavChat = () => {
-    const [isChatOpen, setIsChatOpen] = useState(false);
+const NavigationItem = ({ icon, label, path }) => {
     const navigate = useNavigate();
 
     return (
-        <>
-            {/* Bottom Navigation Bar */}
-            <nav className="sm:hidden fixed bottom-0 left-0 w-full h-12 bg-slate-200 flex items-center px-6 shadow-md z-50">
-                <div className="w-full flex justify-between items-center">
-                    {/* Left Side Icons */}
-                    <div className="m-1 flex items-center justify-between w-28">
-                        <img
-                            className="w-6 cursor-pointer"
-                            src="/assets/Nav/Nav =Home.png"
-                            alt="home"
-                            onClick={() => navigate("/")}
-                        />
-                        <img
-                            className="w-6 cursor-pointer"
-                            src="/assets/Nav/Nav =Recommendation.png"
-                            alt="recommendation"
-                            onClick={() => navigate("/recommendation")}
-                        />
-                    </div>
+        <button
+            onClick={() => navigate(path)}
+            className="flex flex-col items-center"
+            aria-label={label}
+        >
+            <img
+                className="w-6 transition-transform transform hover:scale-110"
+                src={`/assets/Nav/Nav =${icon}.png`}
+                alt={label}
+            />
+        </button>
+    );
+};
 
-                    {/* AI Chat Icon in the Middle */}
-                    <div
-                        className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg z-0 -mt-12 cursor-pointer"
-                        onClick={() => setIsChatOpen(prev => !prev)}
+const FooterLinkSection = ({ title, links }) => (
+    <div>
+        <h4 className="font-display text-lg mb-4">{title}</h4>
+        <ul className="space-y-3">
+            {links.map((link) => (
+                <li key={link.text}>
+                    <a
+                        href={link.href}
+                        className="text-gray-400 hover:text-white transition-colors"
                     >
-                        <img className="w-6" src="/assets/Nav/Nav =Sage Bot.png" alt="AI chat" />
-                    </div>
+                        {link.text}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
 
-                    {/* Right Side Icons */}
-                    <div className="m-1 flex items-center justify-between w-28">
-                        <img
-                            className="w-6 cursor-pointer"
-                            src="/assets/Nav/Nav =Media.png"
-                            alt="community"
-                            onClick={() => navigate("/memory")}
+const Footer = () => {
+    const mobileNavItems = [
+        { icon: "Home", label: "Home", path: "/" },
+        { icon: "Recommendation", label: "Recommendation", path: "/recommendation" },
+        { icon: "Media", label: "Media", path: "/memory" },
+        { icon: "Community", label: "Community", path: "/community" },
+        { icon: "Profile", label: "Profile", path: "/profile" }
+    ];
+
+    const footerSections = {
+        company: {
+            title: "Company",
+            links: [
+                { text: "About Us", href: "#" },
+                { text: "Contact Us", href: "#" },
+                { text: "Partners", href: "#" }
+            ]
+        },
+        resources: {
+            title: "Resources",
+            links: [
+                { text: "Resources", href: "#" },
+                { text: "FAQs", href: "#" },
+                { text: "Support", href: "#" }
+            ]
+        },
+        account: {
+            title: "Account",
+            links: [
+                { text: "Log in", href: "#" },
+                { text: "Register", href: "#" },
+                { text: "Dashboard", href: "#" }
+            ]
+        }
+    };
+
+    return (
+        <>
+            {/* Mobile Bottom Navigation */}
+            <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-md py-2 z-50">
+                <div className="flex justify-around items-center">
+                    {mobileNavItems.map((item) => (
+                        <NavigationItem
+                            key={item.label}
+                            icon={item.icon}
+                            label={item.label}
+                            path={item.path}
                         />
-                        <img
-                            className="w-6 cursor-pointer"
-                            src="/assets/Nav/Nav =Profile.png"
-                            alt="profile"
-                            onClick={() => navigate("/profile")}
-                        />
-                    </div>
+                    ))}
                 </div>
             </nav>
 
-            {/* Chatbox (Hidden by default) */}
-            <div
-                className={`fixed left-1/2 transform -translate-x-1/2 w-96 bg-green-500 rounded-t-xl transition-transform duration-300 ease-in-out z-30 ${isChatOpen ? "bottom-0" : "-bottom-2 translate-y-full"}`}
-            >
-                <div className="bg-green-500 m-6 flex flex-col items-center justify-center rounded-xl">
-                    {/* Chat Interface */}
-                    <div className="w-[360px] bg-white rounded-lg shadow-lg flex flex-col mb-16 mx-8">
-                        {/* Chat Display Area */}
-                        <div className="p-4 h-[400px] overflow-y-scroll border-b space-y-4">
-                            {/* Simulated Chat Log */}
-                            <div className="text-gray-700">
-                                <p><strong>Bot:</strong> Hi! How can I assist you today?</p>
+            {/* Desktop Footer */}
+            <footer className="hidden sm:block bg-primary-dark text-white py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-4 gap-8">
+                        {/* Logo and tagline */}
+                        <div className="col-span-1">
+                            <div className="flex items-center space-x-2 mb-4">
+                                <img src="/assets/logo_light.png" alt="Neoptio logo" className="w-8 h-8" />
+                                <span className="font-display text-xl">Neoptio</span>
                             </div>
-                            <div className="text-gray-900">
-                                <p><strong>You:</strong> I need help understanding my account statement.</p>
-                            </div>
-                            <div className="text-gray-700">
-                                <p><strong>Bot:</strong> Sure, could you provide more details?</p>
-                            </div>
-                            <div className="text-gray-900">
-                                <p><strong>You:</strong> I noticed a charge I don’t recognize.</p>
-                            </div>
-                            <div className="text-gray-700">
-                                <p><strong>Bot:</strong> I understand. Can you share the date and amount of the charge?</p>
-                            </div>
-                            <div className="text-gray-900">
-                                <p><strong>You:</strong> It's from November 10th for $120.</p>
-                            </div>
+                            <p className="text-sm text-gray-400">
+                                Explore the future of mental healthcare
+                            </p>
                         </div>
 
-                        {/* Input Area */}
-                        <div className="flex items-center p-4">
-                            <input
-                                type="text"
-                                className="flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                                placeholder="Type your message here..."
-                            />
-                            <button className="ml-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-                                Send
-                            </button>
+                        {/* Navigation Links */}
+                        <div className="col-span-3 grid grid-cols-3 gap-8">
+                            {Object.values(footerSections).map((section) => (
+                                <FooterLinkSection
+                                    key={section.title}
+                                    title={section.title}
+                                    links={section.links}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
-            </div>
+            </footer>
+
+            <Chatbot />
         </>
     );
 };
 
-export default BottomNavChat;
+export default Footer;

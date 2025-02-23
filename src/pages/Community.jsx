@@ -3,35 +3,29 @@ import ProfessionalSlider from "../components/community/professional";
 
 const Community = () => {
     return (
-        <div className="bg-slate-100 min-h-screen">
-            {/* Main Content */}
-            <div className="bg-pink-50 mt-20 mx-4 mb-14 rounded-t-xl p-6 shadow-lg">
-                <h2 className="text-3xl font-bold text-center text-green-800">Community</h2>
+        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="text-center mb-16">
+                    <h2 className="text-display-lg font-display text-dark mb-6">
+                        Your Support Network
+                    </h2>
+                    <p className="text-body-lg text-neutral-600 max-w-3xl mx-auto">
+                        Connect with loved ones and healthcare professionals who support your journey to better health.
+                    </p>
+                </div>
 
                 {/* Personal Connections Section */}
-                <div className="m-4">
+                <div className="mb-16">
                     <Personal />
                 </div>
 
-                {/* Professional Slider Section */}
-                <div className="m-4">
+                {/* Professional Connections Section */}
+                <div>
                     <ProfessionalSlider />
                 </div>
             </div>
         </div>
     );
 };
-
-const Section = ({ title, id }) => (
-    <div className="mt-6">
-        <div className="py-4 bg-pink-50 rounded-t-xl">
-            <div className="text-xl flex items-center ps-4">
-                <a>{title}</a>
-                <a className="ml-3 text-blue-500">&#8594;</a>
-            </div>
-            <div id={id} className="overflow-y-auto p-2 flex flex-wrap gap-2 max-h-96 m-4"></div>
-        </div>
-    </div>
-);
 
 export default Community;

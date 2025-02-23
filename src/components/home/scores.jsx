@@ -1,59 +1,58 @@
 import React from "react";
+import {
+    Medal, Dumbbell, Utensils, Moon, Droplet, Briefcase, Users, Heart, BookOpen, PiggyBank, Brain, Music, Globe, ShoppingCart, Leaf, Smile, Target, Timer, Home, ClipboardCheck, Handshake, Lightbulb
+} from "lucide-react";
 
 const scores = [
-    { icon: "./assets/Score/icon 1.png", percentage: 70, points: "+1 pts" },
-    { icon: "./assets/Score/icon 2.png", percentage: 50, points: "+2 pts" },
-    { icon: "./assets/Score/icon 3.png", percentage: 85, points: "+3 pts" },
-    { icon: "./assets/Score/icon 4.png", percentage: 40, points: "+2 pts" },
-    { icon: "./assets/Score/icon 5.png", percentage: 95, points: "+3 pts" },
-    { icon: "./assets/Score/icon 6.png", percentage: 60, points: "+2 pts" },
-    { icon: "./assets/Score/icon 7.png", percentage: 80, points: "+1 pts" },
-    { icon: "./assets/Score/icon 8.png", percentage: 20, points: "+1 pts" },
-    { icon: "./assets/Score/icon 9.png", percentage: 100, points: "+2 pts" },
-    { icon: "./assets/Score/icon 10.png", percentage: 30, points: "+2 pts" },
-    { icon: "./assets/Score/icon 11.png", percentage: 90, points: "+3 pts" },
-    { icon: "./assets/Score/icon 12.png", percentage: 45, points: "+1 pts" },
-    { icon: "./assets/Score/icon 13.png", percentage: 75, points: "+1 pts" },
-    { icon: "./assets/Score/icon 14.png", percentage: 10, points: "+2 pts" },
-    { icon: "./assets/Score/icon 15.png", percentage: 35, points: "+3 pts" },
-    { icon: "./assets/Score/icon 16.png", percentage: 65, points: "+1 pts" },
+    { category: "Exercise", score: 75, points: "+2 pts", icon: <Dumbbell className="w-5 h-5 text-red-500" /> },
+    { category: "Diet", score: 85, points: "+3 pts", icon: <Utensils className="w-5 h-5 text-orange-500" /> },
+    { category: "Sleep", score: 90, points: "+4 pts", icon: <Moon className="w-5 h-5 text-blue-500" /> },
+    { category: "Hydration", score: 80, points: "+2 pts", icon: <Droplet className="w-5 h-5 text-cyan-500" /> },
+    { category: "Work Productivity", score: 88, points: "+3 pts", icon: <Briefcase className="w-5 h-5 text-gray-700" /> },
+    { category: "Quality Time with Family", score: 85, points: "+4 pts", icon: <Users className="w-5 h-5 text-green-500" /> },
+    { category: "Relationship Effort", score: 80, points: "+3 pts", icon: <Heart className="w-5 h-5 text-pink-500" /> },
+    { category: "Learning & Growth", score: 90, points: "+5 pts", icon: <BookOpen className="w-5 h-5 text-indigo-500" /> },
+    { category: "Financial Management", score: 75, points: "+3 pts", icon: <PiggyBank className="w-5 h-5 text-yellow-500" /> },
+    { category: "Mindfulness & Mental Health", score: 95, points: "+5 pts", icon: <Brain className="w-5 h-5 text-purple-500" /> },
+    { category: "Listening to Music", score: 78, points: "+2 pts", icon: <Music className="w-5 h-5 text-rose-500" /> },
+    { category: "Travel & Exploration", score: 82, points: "+4 pts", icon: <Globe className="w-5 h-5 text-teal-500" /> },
+    { category: "Smart Spending", score: 88, points: "+3 pts", icon: <ShoppingCart className="w-5 h-5 text-amber-500" /> },
+    { category: "Sustainable Living", score: 86, points: "+3 pts", icon: <Leaf className="w-5 h-5 text-lime-500" /> },
+    { category: "Daily Gratitude", score: 92, points: "+4 pts", icon: <Smile className="w-5 h-5 text-orange-400" /> },
+    { category: "Goal Setting & Achievement", score: 90, points: "+5 pts", icon: <Target className="w-5 h-5 text-red-600" /> },
+    { category: "Time Management", score: 87, points: "+4 pts", icon: <Timer className="w-5 h-5 text-blue-600" /> },
+    { category: "Home Organization", score: 85, points: "+3 pts", icon: <Home className="w-5 h-5 text-gray-600" /> },
+    { category: "Task Completion", score: 89, points: "+4 pts", icon: <ClipboardCheck className="w-5 h-5 text-cyan-600" /> },
+    { category: "Networking & Socializing", score: 82, points: "+3 pts", icon: <Handshake className="w-5 h-5 text-violet-500" /> },
+    { category: "Creative Thinking", score: 91, points: "+4 pts", icon: <Lightbulb className="w-5 h-5 text-yellow-400" /> },
 ];
+
+const no_of_row = 2;
 
 const ScoreBoard = () => {
     return (
-        <div className="m-4">
-            <div className="text-xl pb-2 flex items-center">
-                <span>Score Board</span>
-                <span className="ml-3">&#8594;</span>
+        <div className="p-6">
+            <div className="flex items-center gap-2 mb-4">
+                <Medal className="w-6 h-6 text-yellow-500" />
+                <h2 className="text-lg font-medium text-gray-800">Achievement Board</h2>
             </div>
-            <div className="m-1 py-4 bg-red-100 flex flex-wrap gap-4 items-center rounded-xl shadow-lg">
-                {scores.map((score, index) => (
-                    <div key={index} className="flex flex-col items-center w-20 h-20">
-                        <div className="relative w-full h-full rounded-full overflow-hidden">
-                            <div
-                                className="absolute top-1/2 left-1/2 w-14 h-14 rounded-full transform -translate-x-1/2 -translate-y-1/2"
-                                style={{
-                                    background: `conic-gradient(#4ade80 0%, #4ade80 ${score.percentage}%, transparent ${score.percentage}%, transparent 100%)`,
-                                }}
-                            ></div>
-                            <img
-                                className="absolute top-1/2 left-1/2 object-cover transform -translate-x-1/2 -translate-y-1/2"
-                                src="./assets/Score/Score Ring.png"
-                                alt="Score Ring"
-                            />
-                            <img
-                                className="absolute top-1/2 left-1/2 object-cover transform -translate-x-1/2 -translate-y-1/2"
-                                src={score.icon}
-                                alt="Icon"
-                            />
-                        </div>
-                        <div className="-mt-2 z-10">
-                            <span className="border-2 border-blue-500 bg-blue-200 rounded-lg text-xs px-1 py-1">
-                                {score.points}
+
+            {/* Grid with row control */}
+            <div className="overflow-x-auto">
+                <div className= "grid grid-flow-col auto-cols-[minmax(200px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4">
+                    {scores.map((item, index) => (
+                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm min-w-[200px]">
+                            <div className="flex items-center gap-2 mb-2">
+                                {item.icon}
+                                <h3 className="text-sm font-medium">{item.category}</h3>
+                            </div>
+                            <div className="text-2xl font-bold text-green-500">{item.score}%</div>
+                            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                                {item.points}
                             </span>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

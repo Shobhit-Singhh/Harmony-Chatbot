@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TopNavbar = () => {
+const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -11,58 +11,74 @@ const TopNavbar = () => {
 
     return (
         <>
-            {/* Top Navigation Bar */}
-            <nav className="fixed top-0 left-0 w-full h-14 bg-slate-200 flex items-center px-6 shadow-md z-50">
-                <div className="w-full flex justify-between items-center">
-                    {/* Greeting */}
-                    <div className="text-2xl font-bold text-green-800">
-                        Hi John &#x1F44B;
+            {/* Desktop Navigation (Large screens) */}
+            <nav className="hidden sm:flex items-center justify-center bg-white shadow-md py-4">
+                <div className="max-w-7xl w-full flex justify-between items-center px-4 sm:px-6 lg:px-8">
+                    {/* Logo Section */}
+                    <div className="flex items-center space-x-2">
+                        <img src="../../public/assets/logo_dark.png" alt="logo" className="w-8 h-8" />
+                        <h1 className="text-h3 font-display text-primary">Neoptio</h1>
                     </div>
 
-                    {/* Navigation Tabs (visible on larger screens) */}
-                    <ul className="hidden sm:flex space-x-6 text-sm font-medium">
-                        <li><button onClick={() => navigate("/")} className="hover:text-green-700">Home</button></li>
-                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-green-700">Recommendation</button></li>
-                        <li><button onClick={() => navigate("/memory")} className="hover:text-green-700">Media</button></li>
-                        <li><button onClick={() => navigate("/profile")} className="hover:text-green-700">Profile</button></li>
-                        <li><button onClick={() => navigate("/community")} className="hover:text-green-700">Community</button></li>
+                    {/* Navigation Tabs */}
+                    <ul className="flex space-x-6 text-sm font-medium text-gray-700">
+                        <li><button onClick={() => navigate("/")} className="hover:text-secondary">Home</button></li>
+                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-secondary">Recommendation</button></li>
+                        <li><button onClick={() => navigate("/memory")} className="hover:text-secondary">Media</button></li>
+                        <li><button onClick={() => navigate("/profile")} className="hover:text-secondary">Profile</button></li>
+                        <li><button onClick={() => navigate("/community")} className="hover:text-secondary">Community</button></li>
                     </ul>
 
-                    {/* SOS Button and Hamburger Menu */}
+                    {/* SOS Button */}
+                    <button onClick={() => navigate("/sos")}>
+                        <img className="h-10 w-10 object-contain" src="./assets/SOS Icon.png" alt="SOS" />
+                    </button>
+                </div>
+            </nav>
+
+            {/* Mobile Navigation (Small screens) */}
+            <nav className="sm:hidden fixed top-0 left-0 w-full h-16 bg-white shadow-md flex items-center px-6 z-50">
+                <div className="w-full flex justify-between items-center">
+                    {/* Logo / Greeting */}
+                    <div className="flex items-center space-x-2">
+                        <h1 className="text-2xl font-bold font-display text-primary">Hi John 👋</h1>
+                    </div>
+
+                    {/* SOS Button & Menu */}
                     <div className="flex items-center space-x-4">
                         {/* SOS Button */}
                         <button onClick={() => navigate("/sos")}>
-                            <img className="h-10 w-10 object-contain" src="./assets/SOS Icon.png" alt="SOS" />
+                            <img className="h-12 w-12 object-contain" src="./assets/SOS Icon.png" alt="SOS" />
                         </button>
 
-                        {/* Hamburger Icon (visible on small screens) */}
-                        <button className="sm:hidden" onClick={toggleNav}>
+                        {/* Hamburger Menu */}
+                        <button onClick={toggleNav}>
                             <img className="h-8 w-8 object-contain" src="./assets/hamburger icon.png" alt="menu" />
                         </button>
                     </div>
                 </div>
             </nav>
 
-            {/* Right-Side Menu */}
-            <div className={`fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out z-40`}>
+            {/* Mobile Sidebar Menu */}
+            <div className={`sm:hidden fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out z-40`}>
                 <div className="p-6 relative">
                     {/* Close Button */}
-                    <button onClick={toggleNav} className="text-2xl absolute top-4 right-4">
+                    <button onClick={toggleNav} className="sm:hidden text-2xl absolute top-4 right-4">
                         &times;
                     </button>
 
-                    {/* Navigation Links */}
-                    <ul className="space-y-6 text-lg font-medium pt-20">
-                        <li><button onClick={() => navigate("/")} className="hover:text-green-700">Home</button></li>
-                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-green-700">Recommendation</button></li>
-                        <li><button onClick={() => navigate("/media")} className="hover:text-green-700">Media</button></li>
-                        <li><button onClick={() => navigate("/profile")} className="hover:text-green-700">Profile</button></li>
-                        <li><button onClick={() => navigate("/community")} className="hover:text-green-700">Community</button></li>
+                    {/* Navigation Links (Styled to match desktop) */}
+                    <ul className="space-y-6 text-lg font-medium text-gray-700 pt-20">
+                        <li><button onClick={() => navigate("/")} className="hover:text-secondary">Home</button></li>
+                        <li><button onClick={() => navigate("/recommendation")} className="hover:text-secondary">Recommendation</button></li>
+                        <li><button onClick={() => navigate("/memory")} className="hover:text-secondary">Media</button></li>
+                        <li><button onClick={() => navigate("/profile")} className="hover:text-secondary">Profile</button></li>
+                        <li><button onClick={() => navigate("/community")} className="hover:text-secondary">Community</button></li>
                     </ul>
                 </div>
             </div>
         </>
     );
-}
+};
 
-export default TopNavbar;
+export default Navbar;

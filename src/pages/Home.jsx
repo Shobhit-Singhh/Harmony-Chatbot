@@ -1,52 +1,42 @@
-import { useEffect } from "react";
-import Dashoard from "../components/home/dashboard";
+import Dashboard from "../components/home/dashboard";
 import JournalingPrompts from "../components/home/cards";
-import ScoreBoard from "../components/home/scores";
+import GraphCards from "../components/home/graphs";
 import ReminderCards from "../components/home/reminder";
+import ScoreBoard from "../components/home/scores";
 import CalendarSection from "../components/home/calendar";
-import ImageCaptionCards from "../components/home/graphs";
-import BackgroundImage from "../components/background";
 
 const Home = () => {
     return (
-        <div className="bg-green-100 min-h-screen">
-            {/* Content Wrapper */}
-            <div className="pt-14 pb-10 relative">
-                {/* Background Image */}
-                {/* <BackgroundImage /> */}
-
-
-                {/* Hero Section */}
-                <div className="flex items-center justify-center w-full h-full">
-                    <Dashoard />
+        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                {/* Main Dashboard Section */}
+                <div className="mb-12">
+                    <Dashboard />
                 </div>
 
-                {/* Main Section */}
-                <div className="border-2 m-3 pt-2 bg-pink-50 rounded-t-xl shadow-lg">
-                    {/* Journaling Prompts */}
-                    <div className="m-4">
-                        <JournalingPrompts />
-                    </div>
+                {/* Journaling Section */}
+                <div className="mb-12">
+                    <JournalingPrompts />
+                </div>
 
-                    {/* Score Board */}
-                    <div className="m-4">
-                        <ScoreBoard />
-                    </div>
+                {/* Graphs Section */}
+                <div className="mb-12">
+                    <GraphCards />
+                </div>
 
-                    {/* Well Being Reminders */}
-                    <div className="m-4">
-                        <ReminderCards />
-                    </div>
+                {/* Reminders Section */}
+                <div className="mb-12">
+                    <ReminderCards />
+                </div>
 
-                    {/* Calendar */}
-                    <div className="m-4">
-                        <CalendarSection />
-                    </div>
+                {/* Score Board Section */}
+                <div className="mb-12">
+                    <ScoreBoard />
+                </div>
 
-                    {/* Vitals Section */}
-                    <div className="m-4">
-                        <ImageCaptionCards />
-                    </div>
+                {/* Calendar Section */}
+                <div>
+                    <CalendarSection />
                 </div>
             </div>
         </div>

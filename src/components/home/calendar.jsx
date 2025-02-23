@@ -1,12 +1,14 @@
+import React from "react";
+
 const CalendarSection = () => {
     return (
-        <div className="flex flex-col justify-center m-4">
-            <div className="text-xl pb-2 flex items-center">
-                <span>Calendar</span>
-                <span className="ml-3">&#8594;</span>
+        <div className="p-6">
+            <div className="flex items-center gap-2 mb-4">
+                <h2 className="text-lg font-medium text-gray-800">Your Schedule</h2>
+                <span className="text-gray-400">→</span>
             </div>
-            <div className="flex justify-center">
-                <img className="max-w-[500px] w-full" src="/assets/calendar.png" alt="calendar" />
+            <div className="bg-white p-4 rounded-xl shadow-sm">
+                <div className="h-96 bg-gray-50 rounded-lg"></div>
             </div>
         </div>
     );

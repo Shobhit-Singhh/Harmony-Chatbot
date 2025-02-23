@@ -1,44 +1,35 @@
 import React from "react";
-
-const reminderCardsData = [
-    {
-        title: "Stay Hydrated",
-        icon: "./assets/Reminder Cards/Reminder=Water.png",
-    },
-    {
-        title: "Take a Break",
-        icon: "./assets/Reminder Cards/Reminder=Break.png",
-    },
-    {
-        title: "Deep Breaths",
-        icon: "./assets/Reminder Cards/Reminder=Breath.png",
-    },
-    {
-        title: "Eye Rest",
-        icon: "./assets/Reminder Cards/Reminder=Eye rest.png",
-    },
-    {
-        title: "Meditate",
-        icon: "./assets/Reminder Cards/Reminder=Meditate.png",
-    },
-];
+import { Droplets, Timer, Eye, Brain, Wind, Pill } from "lucide-react";
 
 const ReminderCards = () => {
+    const reminders = [
+        { title: "Stay Hydrated", icon: <Droplets /> },
+        { title: "Take a Break", icon: <Timer /> },
+        { title: "Eye Exercise", icon: <Eye /> },
+        { title: "Mindfulness", icon: <Brain /> },
+        { title: "Deep Breathing", icon: <Wind /> },
+        { title: "Medication", icon: <Pill/> },
+    ];
+
     return (
-        <div className="flex space-x-4 overflow-x-auto p-4">
-            {reminderCardsData.map((card, index) => (
-                <div
-                    key={index}
-                    className="shrink-0 flex flex-col items-center justify-between bg-white p-4 rounded-xl shadow-lg"
-                >
-                    <img
-                        className="w-[200px] object-cover rounded-xl mb-2"
-                        src={card.icon}
-                        alt={card.title}
-                    />
-                    <span className="font-semibold -mt-12 p-2">{card.title}</span>
-                </div>
-            ))}
+        <div className="p-6">
+            <div className="flex items-center gap-2 mb-4">
+                <h2 className="text-lg font-medium text-gray-800">Daily Reminders</h2>
+                <span className="text-gray-400">→</span>
+            </div>
+            <div className="flex gap-4 overflow-x-auto pb-4">
+                {reminders.map((reminder, index) => (
+                    <div
+                        key={index}
+                        className="flex-none w-40 bg-white rounded-xl shadow-sm p-4 flex flex-col items-center gap-3"
+                    >
+                        <div className="p-3 bg-gray-50 rounded-full">
+                            {reminder.icon}
+                        </div>
+                        <span className="text-sm font-medium">{reminder.title}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

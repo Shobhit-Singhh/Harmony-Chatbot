@@ -1,81 +1,67 @@
 import React from "react";
+import { FaUserMd } from "react-icons/fa";
 
 const professionals = [
     {
-        name: "John Doe",
+        name: "Dr. John Doe",
         specialization: "Cardiologist",
         experience: "10 years",
         location: "New York, USA",
         image: "./assets/profile/Profile 5.avif",
     },
     {
-        name: "Jane Smith",
-        specialization: "Dermatologist",
-        experience: "8 years",
-        location: "Los Angeles, USA",
-        image: "./assets/profile/Profile 5.avif",
-    }, 
-    {
-        name: "Jane Smith",
-        specialization: "Dermatologist",
-        experience: "8 years",
-        location: "Los Angeles, USA",
-        image: "./assets/profile/Profile 5.avif",
-    }, 
-    {
-        name: "Jane Smith",
-        specialization: "Dermatologist",
-        experience: "8 years",
-        location: "Los Angeles, USA",
-        image: "./assets/profile/Profile 5.avif",
-    }, 
-    {
-        name: "Jane Smith",
-        specialization: "Dermatologist",
-        experience: "8 years",
-        location: "Los Angeles, USA",
-        image: "./assets/profile/Profile 5.avif",
-    }, 
-    {
-        name: "Jane Smith",
+        name: "Dr. Jane Smith",
         specialization: "Dermatologist",
         experience: "8 years",
         location: "Los Angeles, USA",
         image: "./assets/profile/Profile 5.avif",
     },
+    // ... other professionals
 ];
 
 const Professionals = () => {
     return (
-        <section>
-            <div className="flex flex-col items-center justify-center mb-5">
-                <h1 className="text-3xl font-light text-green-700">Professionals Around You</h1>
+        <div className="bg-white rounded-lg shadow-xl p-8">
+            <div className="flex items-center mb-8">
+                <div className="w-12 h-12 bg-secondary-light/20 rounded-full flex items-center justify-center">
+                    <FaUserMd className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="text-h3 font-display text-dark ml-4">Healthcare Professionals</h3>
             </div>
-            <div className="flex flex-col items-center justify-center mx-3 mb-16">
-                <div className="slider-container overflow-hidden relative w-full max-w-4xl mx-auto">
-                    <div className="slider flex gap-4 transition-transform ease-in-out duration-300 overflow-x-auto scrolling-touch">
+
+            <div className="relative">
+                <div className="overflow-x-auto pb-4">
+                    <div className="flex space-x-6">
                         {professionals.map((profile, index) => (
-                            <div key={index} className="bg-white rounded-lg shadow-lg flex-shrink-0 w-44">
-                                <div className="px-4 py-3 flex flex-col items-center justify-between">
-                                    <div className="flex items-center mb-3">
-                                        <img className="w-16 h-16 rounded-full" src={profile.image} alt="profile" />
-                                    </div>
-                                    <div className="text-center">
-                                        <h2 className="text-lg font-semibold text-slate-900">{profile.name}</h2>
-                                        <p className="text-sm text-gray-600">{profile.specialization}</p>
-                                        <p className="text-sm text-gray-600">{profile.experience}</p>
-                                        <p className="text-sm text-gray-600">{profile.location}</p>
-                                    </div>
-                                    <div className="flex flex-row items-center justify-center mt-3">
-                                        <button className="px-4 py-2 text-sm text-white bg-green-500 rounded-full">Connect</button>
-                                    </div>
+                            <div
+                                key={index}
+                                className="flex-none w-64 bg-neutral-50 rounded-lg p-6"
+                            >
+                                <div className="flex flex-col items-center">
+                                    <img
+                                        className="w-20 h-20 rounded-full mb-4 object-cover"
+                                        src={profile.image}
+                                        alt={profile.name}
+                                    />
+                                    <h4 className="text-lg font-medium text-dark mb-1">
+                                        {profile.name}
+                                    </h4>
+                                    <p className="text-neutral-600 text-sm mb-1">
+                                        {profile.specialization}
+                                    </p>
+                                    <p className="text-neutral-500 text-sm mb-4">
+                                        {profile.location}
+                                    </p>
+                                    <button className="w-full py-2 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+                                        Connect
+                                    </button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
