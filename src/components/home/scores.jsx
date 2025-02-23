@@ -31,7 +31,7 @@ const no_of_row = 2;
 
 const ScoreBoard = () => {
     return (
-        <div className="p-6">
+        <div className="">
             <div className="flex items-center gap-2 mb-4">
                 <Medal className="w-6 h-6 text-yellow-500" />
                 <h2 className="text-lg font-medium text-gray-800">Achievement Board</h2>
