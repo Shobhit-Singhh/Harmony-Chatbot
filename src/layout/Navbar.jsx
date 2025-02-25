@@ -75,7 +75,7 @@ const Footer = () => {
     return (
         <>
             {/* Mobile Bottom Navigation */}
-            <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg py-2 z-40 border-t border-neutral-200">
+            <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg py-2 z-50 border-t border-neutral-200">
                 <div className="flex justify-around items-center">
                     {mobileNavItems.map((item) => (
                         <NavigationItem

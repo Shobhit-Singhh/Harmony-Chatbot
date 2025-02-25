@@ -5,7 +5,7 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
             <div className="bg-white rounded-lg p-6 max-w-sm w-full mx-4 shadow-xl">
                 <h3 className="text-xl font-display text-dark mb-4">Skip Question</h3>
                 <p className="text-neutral-600 mb-6">Are you sure you want to skip this question?</p>
@@ -58,12 +58,12 @@ const UserMessage = ({ text }) => {
 
 const LogsList = ({ text }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    
+
     return (
         <div className="bg-white rounded-lg shadow-md p-4 mb-4 border border-neutral-100">
             <div className="flex justify-between items-center mb-2">
                 <h4 className="text-sm font-medium text-neutral-700">Analysis Log</h4>
-                <button 
+                <button
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="text-neutral-500 hover:text-neutral-700"
                 >
@@ -228,7 +228,7 @@ const Chatbot = () => {
         <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light/30 p-4">
             {!isOpen && (
                 <button
-                    className="fixed bottom-20 sm:bottom-8 right-8 z-40 w-16 h-16 bg-primary rounded-full shadow-xl flex items-center justify-center hover:bg-primary-dark transition-all"
+                    className="fixed bottom-20 sm:bottom-8 right-5 z-40 w-16 h-16 bg-primary rounded-full shadow-xl flex items-center justify-center hover:bg-primary-dark transition-all"
                     onClick={() => setIsOpen(true)}
                 >
                     <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
@@ -258,8 +258,11 @@ const Chatbot = () => {
                 </div>
             </div>
 
-            <div className={`fixed right-8 bottom-20 sm:bottom-8 z-40 bg-white rounded-lg shadow-xl transition-all duration-300 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
-                style={{ width: "350px", maxHeight: "500px" }}>
+            <div className={`fixed right-5 bottom-20 sm:bottom-8 z-40 bg-white rounded-lg shadow-xl transition-all duration-300 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
+                style={{
+                    width: "350px",
+                    maxHeight: "500px",
+                }}>
                 <div className="flex flex-col h-full border border-neutral-200 rounded-lg">
                     <div className="bg-primary text-white p-3 rounded-t-lg flex items-center justify-between">
                         <div className="flex items-center space-x-2">
