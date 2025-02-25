@@ -5,7 +5,7 @@ const ProfileDashboard = () => {
     const tabs = ["Profile", "Psyche", "Settings"];
     
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light">
+        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light pt-16">
             {/* Main Content Container */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                 {/* Profile Card */}

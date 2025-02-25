@@ -240,10 +240,8 @@ const Chatbot = () => {
             <div className="max-w-4xl mx-auto">
                 <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                     <h2 className="text-xl font-display text-dark mb-4 border-b border-neutral-200 pb-3 flex items-center">
-                        <div className="w-6 h-6 mr-2">
-                            {chatbotIcon()}
-                        </div>
-                        Analysis Progress
+                        {chatbotIcon()}
+                        <div className="ml-5">Analysis Progress</div>
                     </h2>
                     <div className="space-y-3">
                         {logs.map((msg, index) => (

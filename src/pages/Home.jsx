@@ -8,7 +8,7 @@ import CalendarSection from "../components/home/calendar";
 const Home = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light">
-            <div className="pt-16">
+            <div className="py-16">
                 {/* Main Dashboard Section */}
                 <div className="mb-12">
                     <Dashboard />
