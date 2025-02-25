@@ -11,12 +11,12 @@ export default {
       
       // Color palette based on the HealthSphere design
       colors: {
-        primary: {
+        secondary: {
           DEFAULT: '#FF4F00',   // Blue from logo and buttons
           light: '#FDCEBA',
           dark: '#C03C00',
         },
-        secondary: {
+        primary: {
           DEFAULT: '#1754C3',   // Orange from CTA buttons
           light: '#CBD8EE',
           dark: '#003EAE',
