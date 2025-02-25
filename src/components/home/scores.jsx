@@ -55,7 +55,7 @@ const ScoreBoard = () => {
                 <h2 className="text-lg font-medium text-gray-800">Achievement Board</h2>
             </div>
             <div className="overflow-x-auto">
-                <div className="grid grid-flow-col auto-cols-[minmax(300px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4">
+                <div className="grid grid-flow-col auto-cols-[minmax(300px,_1fr)] grid-rows-3 sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4">
                     {scores.map((item, index) => (
                         <div key={index} className="bg-white p-4 rounded-xl shadow-sm flex items-center">
                             <div className="w-1/2 flex justify-center">
