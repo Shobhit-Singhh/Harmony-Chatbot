@@ -49,7 +49,7 @@ const CircularProgress = ({ percentage, icon }) => {
 
 const ScoreBoard = () => {
     return (
-        <div className="mx-4 p-4 bg-white rounded-xl shadow-md">
+        <div className="">
             <div className="flex items-center gap-2 mb-4">
                 <Medal className="w-6 h-6 text-yellow-500" />
                 <h2 className="text-lg font-medium text-gray-800">Achievement Board</h2>
