@@ -61,7 +61,7 @@ const no_of_row = 2; // Change this to set the number of rows
 
 const JournalingPrompts = () => {
     return (
-        <div className="">
+        <div className="mx-4 p-4 bg-white rounded-xl shadow-md">
             <div className="flex items-center gap-2 mb-4">
                 <h2 className="text-lg font-medium text-gray-800">Daily Reflections</h2>
                 <span className="text-gray-400">→</span>

@@ -27,29 +27,49 @@ const scores = [
     { category: "Creative Thinking", score: 91, points: "+4 pts", icon: <Lightbulb className="w-5 h-5 text-yellow-400" /> },
 ];
 
-const no_of_row = 2;
+
+const CircularProgress = ({ percentage, icon }) => {
+    const radius = 30;
+    const strokeWidth = 5;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percentage / 100) * circumference;
+
+    return (
+        <svg width="80" height="80" viewBox="0 0 80 80" className="relative">
+            <circle cx="40" cy="40" r={radius} stroke="#e5e7eb" strokeWidth={strokeWidth} fill="none" />
+            <circle cx="40" cy="40" r={radius} stroke="green" strokeWidth={strokeWidth} fill="none"
+                strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round"
+                transform="rotate(-90 40 40)" />
+            <foreignObject x="25" y="25" width="30" height="30">
+                <div className="flex items-center justify-center w-full h-full">{icon}</div>
+            </foreignObject>
+        </svg>
+    );
+};
 
 const ScoreBoard = () => {
     return (
-        <div className="">
+        <div className="mx-4 p-4 bg-white rounded-xl shadow-md">
             <div className="flex items-center gap-2 mb-4">
                 <Medal className="w-6 h-6 text-yellow-500" />
                 <h2 className="text-lg font-medium text-gray-800">Achievement Board</h2>
             </div>
-
-            {/* Grid with row control */}
             <div className="overflow-x-auto">
-                <div className= "grid grid-flow-col auto-cols-[minmax(200px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4">
+                <div className="grid grid-flow-col auto-cols-[minmax(300px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4">
                     {scores.map((item, index) => (
-                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm min-w-[200px]">
-                            <div className="flex items-center gap-2 mb-2">
-                                {item.icon}
-                                <h3 className="text-sm font-medium">{item.category}</h3>
+                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm flex items-center">
+                            <div className="w-1/2 flex justify-center">
+                                <CircularProgress percentage={item.score} icon={item.icon} />
                             </div>
-                            <div className="text-2xl font-bold text-green-500">{item.score}%</div>
-                            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                                {item.points}
-                            </span>
+                            <div className="w-1/2">
+                                <h3 className="text-sm font-medium">{item.category}</h3>
+                                <div className="flex justify-between items-center">
+                                    <div className="text-2xl font-bold text-green-500">{item.score}%</div>
+                                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full border-2 border-blue-200">
+                                        {item.points}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
