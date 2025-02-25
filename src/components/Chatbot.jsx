@@ -225,7 +225,7 @@ const Chatbot = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light/30 p-4">
+        <div className="mb-10 bg-gradient-to-b from-neutral-50 to-accent-blue-light/30 p-4">
             {!isOpen && (
                 <button
                     className="fixed bottom-20 sm:bottom-8 right-5 z-40 w-16 h-16 bg-primary rounded-full shadow-xl flex items-center justify-center hover:bg-primary-dark transition-all"

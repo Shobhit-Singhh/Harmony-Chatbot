@@ -8,15 +8,6 @@ const ProfileDashboard = () => {
         <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-accent-blue-light">
             {/* Main Content Container */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-                <div className="text-center mb-8 md:mb-16">
-                    <h2 className="text-2xl md:text-4xl font-bold text-dark mb-3 md:mb-6">
-                        Your Profile
-                    </h2>
-                    <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
-                        Manage your personal details, preferences, and account settings.
-                    </p>
-                </div>
-
                 {/* Profile Card */}
                 <div className="bg-white rounded-lg shadow-xl p-4 md:p-8 mb-6 md:mb-8">
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-6">
@@ -29,7 +20,7 @@ const ProfileDashboard = () => {
                             <h3 className="text-sm md:text-md text-neutral-500">Email: xyz@gmail.com</h3>
                         </div>
                     </div>
-                    <div className="flex justify-between bg-neutral-100 rounded-full p-2">
+                    <div className="flex justify-between bg-neutral-100 rounded-full p-2 gap-4">
                         {tabs.map((tab) => (
                             <button 
                                 key={tab} 

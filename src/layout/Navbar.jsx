@@ -9,11 +9,10 @@ const NavigationItem = ({ icon: Icon, label, path }) => {
     return (
         <button
             onClick={() => navigate(path)}
-            className="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-primary-light/20 transition-all"
+            className="flex flex-col items-center p-3 rounded-lg hover:bg-primary-light/20 transition-all"
             aria-label={label}
         >
-            <Icon className="w-6 h-6 text-primary" />
-            <span className="text-xs text-neutral-600 font-medium">{label}</span>
+            <Icon className="-m-1 w-8 h-8 text-primary p-[2px]" />
         </button>
     );
 };
@@ -81,7 +80,6 @@ const Footer = () => {
                         <NavigationItem
                             key={item.label}
                             icon={item.icon}
-                            label={item.label}
                             path={item.path}
                         />
                     ))}
