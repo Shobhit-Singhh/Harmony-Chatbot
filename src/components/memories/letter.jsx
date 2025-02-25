@@ -35,17 +35,19 @@ const lettersData = [
 
 const Letter = () => {
     return (
-        <div className="p-6">
+        <div className="p-4 bg-white rounded-xl shadow-md">
             <div className="flex items-center gap-2 mb-4">
                 <h2 className="text-lg font-medium text-gray-800">Letter to Yourself</h2>
                 <span className="text-gray-400">→</span>
             </div>
-            <div className="relative">
-                <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+
+            {/* Scrollable Container */}
+            <div className="overflow-x-auto">
+                <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-4 pb-2">
                     {lettersData.map((letter, index) => (
                         <div
                             key={index}
-                            className="flex-none w-80 snap-start bg-white rounded-xl shadow-sm p-4"
+                            className="bg-white rounded-xl shadow-sm p-4 w-72 flex flex-col hover:shadow-md transition-shadow"
                         >
                             <img
                                 src={letter.src}

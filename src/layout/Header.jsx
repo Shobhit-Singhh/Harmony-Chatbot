@@ -37,7 +37,7 @@ const Navbar = () => {
             </nav>
 
             {/* Mobile Navigation (Small screens) */}
-            <nav className="sm:hidden fixed top-0 left-0 w-full h-16 bg-white shadow-md flex items-center px-6 z-50">
+            <nav className="sm:hidden fixed top-0 left-0 w-full h-16 bg-white shadow-md flex items-center px-6 z-50 mb-10">
                 <div className="w-full flex justify-between items-center">
                     {/* Logo / Greeting */}
                     <div className="flex items-center space-x-2">

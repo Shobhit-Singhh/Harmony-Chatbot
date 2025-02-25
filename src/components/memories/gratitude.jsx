@@ -30,17 +30,19 @@ const gratitudeData = [
 
 const Gratitude = () => {
     return (
-        <div className="p-6">
+        <div className="p-4 bg-white rounded-xl shadow-md">
             <div className="flex items-center gap-2 mb-4">
                 <h2 className="text-lg font-medium text-gray-800">Gratitude Journals</h2>
                 <span className="text-gray-400">→</span>
             </div>
-            <div className="relative">
-                <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+
+            {/* Scrollable container */}
+            <div className="overflow-x-auto">
+                <div className="grid grid-rows-3 md:grid-rows-2 lg:grid-rows-2 grid-flow-col gap-4 pb-2">
                     {gratitudeData.map((item, index) => (
                         <div
                             key={index}
-                            className="flex-none w-72 snap-start bg-white rounded-xl shadow-sm p-4"
+                            className="bg-white rounded-xl shadow-sm p-4 flex flex-col w-72 hover:shadow-md transition-shadow"
                         >
                             <ScrollText className="h-5 w-5 text-gray-400 mb-3" />
                             <h3 className="text-base font-medium mb-2">{item.title}</h3>
