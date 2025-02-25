@@ -1,21 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Home, Lightbulb, Image, Users, User } from "lucide-react";
 import Chatbot from "../components/Chatbot";
 
-const NavigationItem = ({ icon, label, path }) => {
+const NavigationItem = ({ icon: Icon, label, path }) => {
     const navigate = useNavigate();
 
     return (
         <button
             onClick={() => navigate(path)}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-primary-light/20 transition-all"
             aria-label={label}
         >
-            <img
-                className="w-6 transition-transform transform hover:scale-110"
-                src={`/assets/Nav/Nav =${icon}.png`}
-                alt={label}
-            />
+            <Icon className="w-6 h-6 text-primary" />
+            <span className="text-xs text-neutral-600 font-medium">{label}</span>
         </button>
     );
 };
@@ -40,11 +38,11 @@ const FooterLinkSection = ({ title, links }) => (
 
 const Footer = () => {
     const mobileNavItems = [
-        { icon: "Home", label: "Home", path: "/" },
-        { icon: "Recommendation", label: "Recommendation", path: "/recommendation" },
-        { icon: "Media", label: "Media", path: "/memory" },
-        { icon: "Community", label: "Community", path: "/community" },
-        { icon: "Profile", label: "Profile", path: "/profile" }
+        { icon: Home, label: "Home", path: "/" },
+        { icon: Lightbulb, label: "Recommendation", path: "/recommendation" },
+        { icon: Image, label: "Media", path: "/memory" },
+        { icon: Users, label: "Community", path: "/community" },
+        { icon: User, label: "Profile", path: "/profile" }
     ];
 
     const footerSections = {
@@ -77,7 +75,7 @@ const Footer = () => {
     return (
         <>
             {/* Mobile Bottom Navigation */}
-            <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-md py-2 z-50">
+            <nav className="sm:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg py-2 z-40 border-t border-neutral-200">
                 <div className="flex justify-around items-center">
                     {mobileNavItems.map((item) => (
                         <NavigationItem
