@@ -105,7 +105,7 @@ const JournalingPrompts = () => {
 
             {selectedCard && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative z-50">
                         <button onClick={handleClose} className="absolute top-3 right-3">
                             <X size={20} />
                         </button>

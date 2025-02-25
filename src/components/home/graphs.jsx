@@ -148,11 +148,11 @@ const GraphCards = () => {
                 <h2 className="text-lg font-medium text-gray-800">Health Metrics</h2>
                 <span className="text-gray-400">→</span>
             </div>
-            <div className="grid grid-flow-col auto-cols-[minmax(400px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-4 overflow-x-auto">
+            <div className="grid grid-flow-col auto-cols-[minmax(400px,_1fr)] sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 overflow-x-auto">
                 {graphs.map((graph, index) => (
-                    <div key={index} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <h3 className="text-base font-medium mb-2 text-gray-700">{graph.title}</h3>
-                        <div className="h-48">
+                    <div key={index} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <h3 className=" flex flex-col text-base font-medium mb-2 text-gray-700 items-center ">{graph.title}</h3>
+                        <div className="h-52">
                             <ResponsiveContainer>
                                 {renderGraph(graph)}
                             </ResponsiveContainer>

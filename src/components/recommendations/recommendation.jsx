@@ -64,7 +64,7 @@ const RecommendationCard = ({ rec }) => {
         >
             <div className="relative">
                 <div className='flex items-center justify-center mt-4 rounded-md overflow-hidden'>
-                    <img className="h-40 w-full object-cover mx-2 rounded-lg " src={rec.images[currentImage]} alt={rec.title} />
+                    <img className="h-40 w-full object-cover mx-2 rounded-lg" src={rec.images[currentImage]} alt={rec.title} />
                 </div>
                 <button 
                     className={`absolute top-3 right-3 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition ${saved ? "text-yellow-500" : "text-gray-700"}`}
