@@ -57,8 +57,8 @@ function App() {
 
                     <div className="mb-6">
                         <h2 className="text-md font-semibold text-gray-700 mb-2">Key Commands</h2>
-                        <p className="text-sm text-gray-600 mb-1"><span className="font-mono bg-gray-100 px-1">»Report</span> - Get screening summary</p>
-                        <p className="text-sm text-gray-600 mb-1"><span className="font-mono bg-gray-100 px-1">»Mode [type]</span> - Change therapy mode</p>
+                        <p className="text-sm text-gray-600 mb-1"><span className="font-mono bg-gray-100 px-1">» Report</span> - Get screening summary</p>
+                        <p className="text-sm text-gray-600 mb-1"><span className="font-mono bg-gray-100 px-1">» Mode [type]</span> - Change therapy mode</p>
                         <p className="text-sm text-gray-600"><span className="font-mono bg-gray-100 px-1">• CBT</span></p>
                         <p className="text-sm text-gray-600"><span className="font-mono bg-gray-100 px-1">• Humanistic</span></p>
                         <p className="text-sm text-gray-600"><span className="font-mono bg-gray-100 px-1">• Psychodynamic</span></p>
@@ -88,12 +88,11 @@ function App() {
                     <iframe
                         src="https://www.chatbase.co/chatbot-iframe/iikDjITDKlk2BXRqOFFhs"
                         width="100%"
-                        height="100%"
+                        height="105%"
                         allow="clipboard-write; microphone; camera"
-                        className="absolute top-0 left-0 w-full h-[910px] z-0"
+                        className="absolute top-0 left-0 w-full z-10"
                     ></iframe>
                 </div>
-
                 {/* Footer to hide watermark */}
                 <div className="h-10 bg-white border-t border-gray-200 flex items-center justify-center z-50">
                     <p className="text-xs text-gray-500">
