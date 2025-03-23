@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Navbar = () => {
                 <div className="max-w-7xl w-full flex justify-between items-center px-4 sm:px-6 lg:px-8">
                     {/* Logo Section */}
                     <div className="flex items-center space-x-2">
-                        <img src="../../public/assets/logo_dark.png" alt="logo" className="w-8 h-8" />
+                        <img src="/assets/logo_dark.png" alt="logo" className="w-8 h-8" />
                         <h1 className="text-h3 font-display text-primary">Neoptio</h1>
                     </div>
 
@@ -28,7 +29,6 @@ const Navbar = () => {
                         <li><button onClick={() => navigate("/profile")} className="hover:text-secondary">Profile</button></li>
                         <li><button onClick={() => navigate("/community")} className="hover:text-secondary">Community</button></li>
                     </ul>
-
                     {/* SOS Button */}
                     <button onClick={() => navigate("/sos")}>
                         <img className="h-10 w-10 object-contain" src="./assets/SOS Icon.png" alt="SOS" />

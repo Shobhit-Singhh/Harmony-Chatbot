@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Chatbot from "../components/Chatbot";
 import BottomNavChat from "../layout/Navbar";
-import Sidebar from "./1";
+
 import TopNavbar from "../layout/Header";
 
 const MainLayout = () => {
